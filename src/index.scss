@@ -102,14 +102,18 @@ body {
       padding: 15px;
       margin-bottom: 10px;
       &.selected {
-        border-color: red;
+        border-color: rgb(70, 68, 68);
         .brand-colors {
           span {
             flex: 1;
             text-indent: 0;
+            .brand-copy-icon {
+              display: flex;
+            }
           }
         }
       }
+
       h5 {
         font-size: 21px;
         margin-bottom: 10px;
@@ -125,17 +129,34 @@ body {
       }
       &-colors {
         display: flex;
+        gap: 10px;
         span {
           background-color: var(--bgColor);
-          padding: 10px;
+          padding: 7px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 18px;
+          gap: 5px;
+          font-size: 16px;
           font-weight: 500;
           color: var(--textColor);
           text-indent: -9999px;
-          width: 70px;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          .brand-copy-icon {
+            // background-color: aquamarine;
+            display: none;
+            max-width: 40px;
+            svg {
+              width: 25px;
+              height: 25px;
+            }
+          }
+          .brand-color-hex {
+            // background-color: red;
+            max-width: 40px;
+          }
         }
       }
     }

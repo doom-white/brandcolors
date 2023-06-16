@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { getContrastYIQ } from "../helpers";
 import MainContext from "../MainContext";
+import ClipboardButton from "react-clipboard.js";
+import { VscCopy } from "react-icons/vsc";
 
 const Brand = ({ brand }) => {
   const { selectedBrands, setSelectedBrands } = useContext(MainContext);
@@ -20,16 +22,22 @@ const Brand = ({ brand }) => {
       }`}
     >
       <h5 onClick={toggleSelected}>{brand.title}</h5>
+
       <div className="brand-colors">
         {brand.colors.map((color) => (
-          <span
+          <ClipboardButton
+            data-clipboard-text={`#${color}`}
+            component="span"
             style={{
               "--bgColor": `#${color}`,
               "--textColor": `${getContrastYIQ(color)}`,
             }}
           >
-            {color}
-          </span>
+            <span className="brand-copy-icon">
+              <VscCopy />
+            </span>
+            <span className="brand-color-hex">#{color}</span>
+          </ClipboardButton>
         ))}
       </div>
     </div>
