@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./components/Sidebar";
+import Content from "./components/Content";
+import MainContext from "./MainContext";
+import BrandsData from "./brandcolors.json";
 
 const App = () => {
-  return <Sidebar />;
+  const brandsArray = [];
+  Object.keys(BrandsData).map((key) => {
+    brandsArray.push(BrandsData[key]);
+  });
+
+  const [brands, setBrands] = useState(brandsArray);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const data = {
+    brands,
+    selectedBrands,
+    setSelectedBrands,
+  };
+
+  useEffect(() => {
+    console.log(selectedBrands);
+  }, [selectedBrands]);
+
+  return (
+    <>
+      <MainContext.Provider value={data}>
+        <Sidebar />
+        <Content />
+      </MainContext.Provider>
+    </>
+  );
 };
 
 export default App;
