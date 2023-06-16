@@ -1,0 +1,2 @@
+npm i sass (scss için)
+npm i react-modal (modal oluşturmak için)

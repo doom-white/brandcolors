@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+}
+
+.sidebar {
+  width: 20rem;
+  min-width: 20rem;
+  border-right: 1px solid #ccc;
+  padding: 1.57rem;
+  .logo {
+    margin-bottom: 25px;
+    a {
+      font-size: 30px;
+    }
+  }
+  .description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #999;
+    margin-bottom: 25px;
+  }
+  .menu {
+    ul {
+      li {
+        div {
+          display: block;
+          font-weight: 600;
+          color: #333;
+        }
+      }
+    }
+  }
+}
