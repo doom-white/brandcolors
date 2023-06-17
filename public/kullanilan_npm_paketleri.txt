@@ -4,3 +4,4 @@ npm install react-icons --save
 npm i react-clipboard.js (kopyalananı yakalamak için)
 npm i react-lazyload (çok fazla dosya varken performansı arttırmak için kullandık. React 18+ sürümlerinde çalışmıyor)
 npm i react-lazyload-v18 bu yukardakiyle aynı ve çalışıyor....
+npm i react-router-dom

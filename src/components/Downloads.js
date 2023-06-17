@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import MainContext from "../MainContext";
 import { IoMdDownload, IoMdClose } from "react-icons/io";
 import { MdLink } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Downloads = () => {
   const { selectedBrands, brands, setSelectedBrands } = useContext(MainContext);
@@ -54,13 +55,6 @@ const Downloads = () => {
     }
   }, [selectedBrands, brands, cssMethod]);
 
-  const getLink = () => {
-    prompt(
-      "Here's the URL to share",
-      `http://localhost:3000/collections/${selectedBrands.join(",")}`
-    );
-  };
-
   return (
     <div className="download">
       <div className="actions"></div>
@@ -74,9 +68,9 @@ const Downloads = () => {
           <a download={`brands.${cssMethod}`} href={downloadURL}>
             <IoMdDownload />
           </a>
-          <button onClick={getLink}>
+          <Link to={`/collections/${selectedBrands.join(",")}`}>
             <MdLink />
-          </button>
+          </Link>
           <button onClick={() => setSelectedBrands([])}>
             <IoMdClose />
           </button>

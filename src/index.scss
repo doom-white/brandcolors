@@ -80,7 +80,7 @@ body {
     border-bottom: 1px solid #ccc;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     .search {
@@ -150,8 +150,26 @@ body {
             &:hover {
               color: #333;
             }
+            transition: all 200ms linear;
           }
         }
+      }
+    }
+    a {
+      font-size: 17px;
+      font-weight: bolder;
+      color: #999;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding-left: 15px;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+      transition: all 200ms linear;
+      &:hover {
+        color: #333;
       }
     }
   }
