@@ -4,14 +4,16 @@ import Search from "./Search";
 import Brand from "./Brand";
 import MainContext from "../MainContext";
 import LazyLoad from "react-lazyload-v18";
+import Downloads from "./Downloads";
 
 const Content = () => {
-  const { brands } = useContext(MainContext);
+  const { selectedBrands, brands } = useContext(MainContext);
 
   return (
     <main className="content">
       <header className="header">
         <Search />
+        {selectedBrands && <Downloads />}
       </header>
       <section className="brands">
         {brands.map((brand) => (
