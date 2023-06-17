@@ -74,6 +74,8 @@ body {
   flex: 1;
   overflow: auto;
   background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
   .header {
     // background-color: #0099e5;
     height: 55px;
@@ -174,12 +176,14 @@ body {
     }
   }
   .brands {
-    padding: 25px;
+    padding: 20px;
+    height: calc(100% - 55px);
+    width: 100%;
+
     .brand {
-      border: 1px solid #ddd;
       background: #fff;
       padding: 15px;
-      margin-bottom: 10px;
+      border: 1px solid #ddd;
       &.selected {
         border-color: rgb(70, 68, 68);
         .brand-colors {

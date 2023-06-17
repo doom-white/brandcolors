@@ -5,6 +5,7 @@ import LazyLoad from "react-lazyload-v18";
 import Brand from "./Brand";
 import Downloads from "./Downloads";
 import { MdArrowBack } from "react-icons/md";
+import Loader from "./Loader";
 
 const Collection = () => {
   const { slugs } = useParams();
@@ -26,7 +27,7 @@ const Collection = () => {
         {selectedBrands.map((slug) => {
           let brand = brands.find((b) => b.slug === slug);
           return (
-            <LazyLoad once={true} overflow={true} placeholder="Yükleniyor...">
+            <LazyLoad once={true} overflow={true} placeholder={<Loader />}>
               <Brand brand={brand} />
             </LazyLoad>
           );

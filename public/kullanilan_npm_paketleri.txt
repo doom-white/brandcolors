@@ -5,3 +5,12 @@ npm i react-clipboard.js (kopyalananı yakalamak için)
 npm i react-lazyload (çok fazla dosya varken performansı arttırmak için kullandık. React 18+ sürümlerinde çalışmıyor)
 npm i react-lazyload-v18 bu yukardakiyle aynı ve çalışıyor....
 npm i react-router-dom
+
+https://skeletonreact.com/
+
+npm i react-content-loader
+
+sayfa yüklenirken sayfanın ön izlemini yani kabaca iskeletini loader şeklinde göstermek için
+sayfanızın iskelet yapısını tasarlayabileceğiniz bir site!
+
+npm i  react-virtualized (performansı uçur "(:-)")
