@@ -6,16 +6,44 @@ import { MdLink } from "react-icons/md";
 const Downloads = () => {
   const { selectedBrands, brands, setSelectedBrands } = useContext(MainContext);
   const [downloadURL, setDownloadURL] = useState();
+  const [cssMethod, setCssMethod] = useState("css");
 
   useEffect(() => {
     if (selectedBrands.length > 0) {
       let output = "";
-      selectedBrands.map((slug) => {
-        let brand = brands.find((b) => b.slug === slug);
-        brand.colors.map((color, key) => {
-          output += `--${slug}-${key}: #${color}\n`;
-        });
-      });
+
+      switch (cssMethod) {
+        case "css":
+          output += ":root{\n";
+          selectedBrands.map((slug) => {
+            let brand = brands.find((b) => b.slug === slug);
+            brand.colors.map((color, key) => {
+              output += `--${slug}-${key}: #${color}\n`;
+            });
+          });
+          output += "}";
+          break;
+        case "scss":
+          selectedBrands.map((slug) => {
+            let brand = brands.find((b) => b.slug === slug);
+            brand.colors.map((color, key) => {
+              output += `$${slug}-${key}: #${color}\n`;
+            });
+          });
+          break;
+        case "less":
+          selectedBrands.map((slug) => {
+            let brand = brands.find((b) => b.slug === slug);
+            brand.colors.map((color, key) => {
+              output += `@${slug}-${key}: #${color}\n`;
+            });
+          });
+          break;
+
+        default:
+          break;
+      }
+
       const blob = new Blob([output]);
       const url = URL.createObjectURL(blob);
       setDownloadURL(url);
@@ -24,7 +52,7 @@ const Downloads = () => {
         setDownloadURL("");
       };
     }
-  }, [selectedBrands]);
+  }, [selectedBrands, brands, cssMethod]);
 
   const getLink = () => {
     prompt(
@@ -38,9 +66,14 @@ const Downloads = () => {
       <div className="actions"></div>
       <div className="selected-slug">
         <div className="button-pairs">
-          <a download="test.css" href={downloadURL}>
+          <a download={`brands.${cssMethod}`} href={downloadURL}>
             <IoMdDownload />
           </a>
+          <select onChange={(e) => setCssMethod(e.target.value)}>
+            <option value="css">CSS</option>
+            <option value="scss">SCSS</option>
+            <option value="less">LESS</option>
+          </select>
           <button onClick={getLink}>
             <MdLink />
           </button>
