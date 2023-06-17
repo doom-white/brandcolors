@@ -84,8 +84,9 @@ body {
     position: sticky;
     top: 0;
     .search {
-      //   background-color: aqua;
+      // background-color: aqua;
       flex: 1;
+      height: 100%;
       position: relative;
       .search-icon {
         position: absolute;
@@ -110,7 +111,11 @@ body {
       }
     }
     .download {
+      background-color: #fff;
+      height: 100%;
       padding-right: 25px;
+      display: flex;
+      align-items: center;
       .selected-slug {
         font-size: 14px;
         font-weight: 500;
