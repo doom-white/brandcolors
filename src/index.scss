@@ -17,6 +17,20 @@ body {
   display: flex;
 }
 
+.copied {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bgColor);
+  color: var(--textColor);
+  padding: 10px 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
 .sidebar {
   width: 20rem;
   min-width: 20rem;

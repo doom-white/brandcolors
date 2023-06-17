@@ -5,7 +5,8 @@ import ClipboardButton from "react-clipboard.js";
 import { VscCopy } from "react-icons/vsc";
 
 const Brand = ({ brand }) => {
-  const { selectedBrands, setSelectedBrands } = useContext(MainContext);
+  const { selectedBrands, setSelectedBrands, setCopied } =
+    useContext(MainContext);
 
   const toggleSelected = () => {
     if (selectedBrands.includes(brand.slug)) {
@@ -32,6 +33,7 @@ const Brand = ({ brand }) => {
               "--bgColor": `#${color}`,
               "--textColor": `${getContrastYIQ(color)}`,
             }}
+            onSuccess={() => setCopied(color)}
           >
             <span className="brand-copy-icon">
               <VscCopy />
