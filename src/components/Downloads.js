@@ -66,14 +66,14 @@ const Downloads = () => {
       <div className="actions"></div>
       <div className="selected-slug">
         <div className="button-pairs">
-          <a download={`brands.${cssMethod}`} href={downloadURL}>
-            <IoMdDownload />
-          </a>
           <select onChange={(e) => setCssMethod(e.target.value)}>
             <option value="css">CSS</option>
             <option value="scss">SCSS</option>
             <option value="less">LESS</option>
           </select>
+          <a download={`brands.${cssMethod}`} href={downloadURL}>
+            <IoMdDownload />
+          </a>
           <button onClick={getLink}>
             <MdLink />
           </button>
